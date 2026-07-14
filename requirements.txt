@@ -1,0 +1,9 @@
+# requirements.txt
+
+customtkinter
+mutagen
+thefuzz
+google-genai
+python-dotenv
+pillow
+send2trash

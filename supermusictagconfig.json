@@ -1,0 +1,39 @@
+{
+  "naming_convention": "Artist - Title",
+  "fuzzy_threshold": 65.2,
+  "fuzzy_show_collaboration": false,
+  "column_order": [
+    "filename",
+    "artist",
+    "title",
+    "album",
+    "date_modified",
+    "bitrate",
+    "length",
+    "location"
+  ],
+  "fuzzy_ignore_pairs": [],
+  "unorg_check_artist": true,
+  "unorg_check_title": true,
+  "unorg_check_album": false,
+  "unorg_check_filename": true,
+  "unorg_check_cover_art": false,
+  "organize_strategy": "gemini",
+  "gemini_search_title": true,
+  "gemini_search_artist": true,
+  "gemini_search_album": false,
+  "gemini_logging": true,
+  "gemini_prompt": "You are a music metadata expert. I will give you a JSON array of\naudio files. Each entry has a filename and its current metadata tags\n(some may be \"Unknown\").\n\nFor each file:\n1. Use the filename and existing tags to identify the correct\n   {fields_str}.\n2. If the tags are incomplete or wrong, use your knowledge and\n   browse the web if needed to find the correct information.\n3. Suggest a clean filename following this convention:\n   \"{naming}\" with the original file extension preserved.\n   When constructing the filename, replace the character '?'\n   with '\u00bf' and any other characters that are illegal in\n   filenames (such as / \\ : * \" < > |) with '_'.\n4. Rate your confidence as \"high\", \"medium\", or \"low\".\n5. If you genuinely cannot identify a file, still return an entry\n   with your best guess and confidence \"low\".{preserve_block}\n\nReturn ONLY a valid JSON array with no markdown, no code fences,\nand no explanation. Each element must have exactly these keys:\n  index, suggested_title, suggested_artist, suggested_album,\n  suggested_filename, confidence",
+  "table_theme": "light",
+  "filename_replacements": {
+    "?": "\u00bf",
+    "\\": "_",
+    "/": "_",
+    ":": "_",
+    "*": "_",
+    "\"": "_",
+    "<": "_",
+    ">": "_",
+    "|": "_"
+  }
+}

@@ -1,0 +1,18 @@
+# Environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Optional: configuration
+supermusictagconfig.json
+
+# Local audit notes
+UX_AUDIT.md
